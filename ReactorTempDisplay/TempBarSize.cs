@@ -1,11 +1,10 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityEngine;
 
 namespace ReactorTempDisplay
 {
-	// Token: 0x02000002 RID: 2
-	[HarmonyPatch(typeof(PLInGameUI), "Update")]
+    // Token: 0x02000002 RID: 2
+    [HarmonyPatch(typeof(PLInGameUI), "Update")]
 	internal class TempBarSize
 	{
 		// Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250

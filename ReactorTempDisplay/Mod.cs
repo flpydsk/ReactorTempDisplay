@@ -1,10 +1,9 @@
-﻿using System;
-using PulsarPluginLoader;
+﻿using PulsarModLoader;
 
 namespace ReactorTempDisplay
 {
-	// Token: 0x02000003 RID: 3
-	public class Plugin : PulsarPlugin
+    // Token: 0x02000003 RID: 3
+    public class Mod : PulsarMod
 	{
 		// Token: 0x06000003 RID: 3 RVA: 0x00002180 File Offset: 0x00000380
 		public override string HarmonyIdentifier()
@@ -18,7 +17,7 @@ namespace ReactorTempDisplay
 		{
 			get
 			{
-				return "0.1.9";
+				return "0.1.10";
 			}
 		}
 
