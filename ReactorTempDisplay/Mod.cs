@@ -1,20 +1,16 @@
 ﻿using PulsarModLoader;
+using PulsarModLoader.Keybinds;
 
 namespace ReactorTempDisplay
 {
-    public class Mod : PulsarMod
+    public class Mod : PulsarMod, IKeybind
 	{
-
-		public override string HarmonyIdentifier()
-		{
-			return "FoppyDisk.ReactorTempDisplay";
-		}
 
 		public override string Version
 		{
 			get
 			{
-				return "0.1.11";
+				return "1.12";
 			}
 		}
 
@@ -34,7 +30,12 @@ namespace ReactorTempDisplay
 			}
 		}
 
-		public override string ShortDescription
+        public override string HarmonyIdentifier()
+        {
+            return $"{Author}.{Name}";
+        }
+
+        public override string ShortDescription
 		{
 			get
 			{
@@ -49,5 +50,9 @@ namespace ReactorTempDisplay
 				return "Licence: GPL 3.0 only";
 			}
 		}
-	}
+        public void RegisterBinds(KeybindManager manager)
+        {
+            manager.NewBind("Toggle Display Mode", $"ToggleDisplayMode", "Basics", "Y");
+        }
+    }
 }
