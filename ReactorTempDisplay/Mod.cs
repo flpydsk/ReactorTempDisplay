@@ -52,7 +52,7 @@ namespace ReactorTempDisplay
 		}
         public void RegisterBinds(KeybindManager manager)
         {
-            manager.NewBind("Toggle Display Mode", $"ToggleDisplayMode", "Basics", "Y");
+            manager.NewBind("Toggle Display Mode", "ToggleDisplayMode", "Basics", "Y");
         }
     }
 }
