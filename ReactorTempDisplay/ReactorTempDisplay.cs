@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿//Copyright 2023 (c) Floppydisk
+//GPL 3.0-only
+using HarmonyLib;
 using PulsarModLoader;
 using PulsarModLoader.Keybinds;
 using UnityEngine;
@@ -27,7 +29,7 @@ namespace ReactorTempDisplay
                 if (KeybindManager.Instance.GetButtonDown("ToggleDisplayMode"))
                 {
                     DisplayType = !DisplayType;
-                    SavedDisplayType.Value = DisplayType;
+                    SavedDdisplayType.Value = DisplayType;
                 }
 
                 //Depending on display mode, display correct option
