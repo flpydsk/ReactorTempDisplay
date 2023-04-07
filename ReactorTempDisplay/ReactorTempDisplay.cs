@@ -19,8 +19,8 @@ namespace ReactorTempDisplay
             //If we are in a game then override the temp bar
             if (PLServer.Instance && PLGlobal.Instance && PLNetworkManager.Instance && PLNetworkManager.Instance.ViewedPawn)
             {
-                string TempText = "T:" + Mathf.Clamp(Mathf.RoundToInt(PLEncounterManager.Instance.PlayerShip.MyStats.ReactorTempCurrent / PLEncounterManager.Instance.PlayerShip.MyStats.ReactorTempMax * 100f), 0, 100).ToString("000") + "%";
-                int Stability = Mathf.RoundToInt(Mathf.Clamp01(1f - PLEncounterManager.Instance.PlayerShip.CoreInstability) * 100f);
+                string TempText = "T:" + Mathf.RoundToInt(PLEncounterManager.Instance.PlayerShip.MyStats.ReactorTempCurrent / PLEncounterManager.Instance.PlayerShip.MyStats.ReactorTempMax * 100f).ToString("000") + "%";
+                int Stability = Mathf.RoundToInt((1f - PLEncounterManager.Instance.PlayerShip.CoreInstability) * 100f);
                 string StabilityText = "S:" + Stability.ToString("000") + "%";
                 bool IsNotStable = Stability < 100;
                 string DisplayText;
@@ -29,14 +29,14 @@ namespace ReactorTempDisplay
                 if (KeybindManager.Instance.GetButtonDown("ToggleDisplayMode"))
                 {
                     DisplayType = !DisplayType;
-                    SavedDdisplayType.Value = DisplayType;
+                    SavedDisplayType.Value = DisplayType;
                 }
 
                 //Depending on display mode, display correct option
                 if (DisplayType)
                 {
                     //Displays in short mode, switches baste on status of reactor
-                    BarLength = 110f;
+                    BarLength = 115f;
                     if (IsNotStable)
                     {
                         DisplayText = StabilityText;
@@ -49,7 +49,7 @@ namespace ReactorTempDisplay
                 else
                 {
                     //display all at the same time
-                    BarLength = 230f;
+                    BarLength = 235f;
                     DisplayText = TempText + " | " + StabilityText;
 
                 }

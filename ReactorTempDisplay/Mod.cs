@@ -12,7 +12,7 @@ namespace ReactorTempDisplay
 		{
 			get
 			{
-				return "1.12";
+				return "1.13";
 			}
 		}
 
