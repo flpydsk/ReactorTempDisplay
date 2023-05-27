@@ -1,6 +1,16 @@
 Copyright 2023 (c) Floppydisk
 GPL 3.0-only
 
-Reactor temp display takes over the UI temp bar to display reactor temp and if stability != 100% then display stability. 
+Reactor temp display takes over the UI temp bar to display reactor temp and if stability != 100% then display stability.
 
+Mode 1:
+  HP [60/60  ]
+  O2 [100%          ] TM [T:000% | S:000%]
 
+Mode 2:
+  When Stability = 100%:
+    HP [60/60  ]
+    O2 [100%          ] TM [T:000%]
+  Or when Stability != 100:
+    HP [60/60  ]
+    O2 [100%          ] TM [S:000%]
