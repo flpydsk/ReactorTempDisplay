@@ -11,8 +11,8 @@ namespace ReactorTempDisplay
     [HarmonyPatch(typeof(PLInGameUI), "Update")]
     internal class ReactorTempDisplay
     {
-        static SaveValue<bool> SavedDisplayType = new SaveValue<bool>("DisplayType", false);
-        private static bool DisplayType = SavedDisplayType.Value;
+        public static SaveValue<bool> SavedDisplayType = new SaveValue<bool>("DisplayType", false);
+        public static bool DisplayType = SavedDisplayType.Value;
         public static void Postfix(PLInGameUI __instance)
         {
 
@@ -24,13 +24,6 @@ namespace ReactorTempDisplay
                 string StabilityText = "S:" + Stability.ToString("000") + "%";
                 bool IsNotStable = Stability < 100;
                 string DisplayText;
-
-                // If player presses display mode toggle bind then switch mode
-                if (KeybindManager.Instance.GetButtonDown("ToggleDisplayMode"))
-                {
-                    DisplayType = !DisplayType;
-                    SavedDisplayType.Value = DisplayType;
-                }
 
                 //Depending on display mode, display correct option
                 if (DisplayType)
