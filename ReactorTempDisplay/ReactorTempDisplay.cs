@@ -2,7 +2,6 @@
 //GPL 3.0-only
 using HarmonyLib;
 using PulsarModLoader;
-using PulsarModLoader.Keybinds;
 using UnityEngine;
 
 namespace ReactorTempDisplay

@@ -14,12 +14,10 @@ namespace ReactorTempDisplay
                 "rtdmode"
             };
         }
-
         public override string Description()
         {
             return "Toggle the mode of Reactor temp display";
         }
-
         public override void Execute(string arguments)
         {
             ReactorTempDisplay.DisplayType = !ReactorTempDisplay.DisplayType;

@@ -1,7 +1,6 @@
 ﻿//Copyright 2023 (c) Floppydisk
 //GPL 3.0-only
 using PulsarModLoader;
-using PulsarModLoader.Keybinds;
 
 namespace ReactorTempDisplay
 {
