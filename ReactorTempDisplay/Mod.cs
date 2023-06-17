@@ -22,7 +22,7 @@ namespace ReactorTempDisplay
 {
     public class Mod : PulsarMod
 	{
-		public override string Version => "1.16";
+		public override string Version => "1.15";
 		public override string Author => "FloppyDisk";
 		public override string Name => "ReactorTempDisplay";
         public override string HarmonyIdentifier() => $"{Author}.{Name}";
