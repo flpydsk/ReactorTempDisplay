@@ -1,8 +1,10 @@
 Copyright 2023 (c) Floppydisk
-GPL 3.0-only
+Licence: GNU GPL-3.0
 
 Reactor temp display takes over the UI temp bar to display reactor temp and if stability != 100% then display stability.
-
+Commands:
+  /rtdmode /rtd - Toggle Display mode between 1 and 2.
+Mode Examples:
 Mode 1:
   HP [60/60  ]
   O2 [100%          ] TM [T:000% | S:000%]
