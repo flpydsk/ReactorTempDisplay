@@ -22,11 +22,11 @@ namespace ReactorTempDisplay
 {
     public class Mod : PulsarMod
 	{
-		public override string Version => "1.15";
+        public override string License => "GNU GPL-3.0";
+        public override string Version => "1.15.1";
 		public override string Author => "FloppyDisk";
 		public override string Name => "ReactorTempDisplay";
         public override string HarmonyIdentifier() => $"{Author}.{Name}";
         public override string ShortDescription => "Reactor Temperature & Stability Display";
-		public override string LongDescription => "Licence: GNU GPL-3.0";
     }
 }

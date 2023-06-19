@@ -25,7 +25,7 @@ namespace ReactorTempDisplay
     [HarmonyPatch(typeof(PLInGameUI), "Update")]
     internal class ReactorTempDisplay
     {
-        //Init mode save and create a copy
+        //Init mode save and create a copy in memory (I did not check, and refuse to  if SaveValue does that for us)
         public static SaveValue<bool> SavedDisplayType = new SaveValue<bool>("DisplayType", false);
         public static bool DisplayType = SavedDisplayType.Value;
 
@@ -39,14 +39,18 @@ namespace ReactorTempDisplay
             //If we are in a game modify the UI
             if (PLServer.Instance && PLGlobal.Instance && PLNetworkManager.Instance && PLNetworkManager.Instance.ViewedPawn)
             {
-                //Check we have a claimed ship else display 0
+                //Check we have a claimed ship
                 if (PLEncounterManager.Instance.PlayerShip)
                 {
+                    //If so Get the claimed ship Temperature and stability, then convert to percentage
+                    // current / max * 100
                     Temperature = Mathf.RoundToInt(PLEncounterManager.Instance.PlayerShip.MyStats.ReactorTempCurrent / PLEncounterManager.Instance.PlayerShip.MyStats.ReactorTempMax * 100f);
+                    // 1 - instability = stability * 100 = percentage
                     Stability = Mathf.RoundToInt((1f - PLEncounterManager.Instance.PlayerShip.CoreInstability) * 100f);
                 }
                 else
                 {
+                    //Cant have Temperature or stability when you have no reactor
                     Stability = 0;
                     Temperature = 0;
                 }
@@ -54,14 +58,13 @@ namespace ReactorTempDisplay
                 //Put the temperature and stability values in to a string format
                 string StabilityText = "S:" + Stability.ToString("000") + "%";
                 string TempText = "T:" + Temperature.ToString("000") + "%";
-                bool IsNotStable = Stability < 100;
 
                 //Display mode from selection.
                 if (DisplayType)
                     {
                         //Display short mode
                         BarLength = 115f;
-                        if (IsNotStable)
+                        if (Stability < 100)
                         {
                             DisplayText = StabilityText;
                         }

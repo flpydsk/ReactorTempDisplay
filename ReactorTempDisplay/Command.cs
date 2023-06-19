@@ -36,7 +36,9 @@ namespace ReactorTempDisplay
         }
         public override void Execute(string arguments)
         {
+            //Toggle mode
             ReactorTempDisplay.DisplayType = !ReactorTempDisplay.DisplayType;
+            //Save mode to disk
             ReactorTempDisplay.SavedDisplayType.Value = ReactorTempDisplay.DisplayType;
         }
     }
